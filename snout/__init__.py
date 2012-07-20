@@ -9,6 +9,8 @@ def a_method_like_this(request,some_arg,another_arg): pass
 snout will generate a route like this:
     ^a-method-like-this/(?P<some_arg>[\w\-\.]+)/(?P<another_arg>[\w\-\.]+)/?$
 """
+__version__ = "1.0.1"
+
 import inspect
 import unittest
 

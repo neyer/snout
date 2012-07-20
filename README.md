@@ -29,6 +29,11 @@ awww yeah
 
 ## how
 
+ install it like this:
+
+ `pip install snout`
+
+
 `make_django_patterns` creates a route for all functions in the given module, except those starting with "_"
 
  underscores (_) are replaced with dashes (-) because why not?
