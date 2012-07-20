@@ -31,10 +31,11 @@ awww yeah
 
 `make_django_patterns` creates a route for all functions in the given module, except those starting with "_"
 
-underscores (_) are replaced with dashes (-) because why not?
+ underscores (_) are replaced with dashes (-) because why not?
 
+ a view named "index" is given the route "^$" by default
 
-any arguments to your view (other than "requests") are assigned regular expression match groups. 
+ any arguments to your view (other than "requests") are assigned regular expression match groups. 
 
 
 ## why

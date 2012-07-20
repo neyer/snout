@@ -33,8 +33,9 @@ def make_url_pattern(for_method,name_cleaner=underscores_to_dashes):
     
 
 def generate_url_routes(module, private_tester=starts_with_underscore,
-                                  name_cleaner=underscores_to_dashes):
-    """inspect all functions in `module` and create a url patterns for each one."""
+                                name_cleaner=underscores_to_dashes,
+                                index_view="index"):
+    """inspect all functions in `module` and create a url pattern for each one."""
 
     all_methods = inspect.getmembers(module,inspect.isfunction)
 
@@ -43,17 +44,22 @@ def generate_url_routes(module, private_tester=starts_with_underscore,
 
     #extract any parameters from this function and use them to build the url 
     for name, method in views:
-        yield make_url_pattern(method,name_cleaner), method
+        if name == index_view:
+            yield "^$", method
+        else:
+            yield make_url_pattern(method,name_cleaner), method
 
 
 def make_django_patterns(module, prefix='', private_tester=starts_with_underscore,
-                        name_cleaner=underscores_to_dashes):
+                        name_cleaner=underscores_to_dashes,add_index=True):
 
     from django.conf.urls import patterns, url
     routes = [ url(regex,method)  for regex,method in\
                      generate_url_routes(module,private_tester,name_cleaner)]
     return patterns(prefix,*routes)
 
+def index(pants):
+    pass
 
 def _this_should_not_be_a_route(its_here_for_tests_ok): pass
 
