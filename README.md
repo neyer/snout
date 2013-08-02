@@ -21,7 +21,7 @@ instead of this:
 now you can do this:
 
     # breakfast/urls.py
-    import views
+    from import breakfast views
     import snout
     urlpatterns = snout.make_django_patterns(views)
 
@@ -46,3 +46,7 @@ awww yeah
 ## why
 
 laziness
+
+## license
+
+i don't give a shit
