@@ -47,6 +47,8 @@ awww yeah
 
 laziness
 
-## license
+## who
+
+mark neyer, gentleman coder
 
 BSD
